@@ -1,6 +1,6 @@
 public interface Scientist{
 
-    void learn();
-    void teach();
+    void learn() throws NotLearning;
+    void teach() throws NotTeaching;
 
 }

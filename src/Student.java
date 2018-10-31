@@ -3,6 +3,7 @@ public class Student extends Person implements Scientist{
     private String group;
     private int amountOfDiscipline;
     private int pairs=0;
+    private Teacher teacher;
 
     public Student(String name, int age, String group, int amountOfDiscipline){
         super(name, age);
@@ -24,6 +25,14 @@ public class Student extends Person implements Scientist{
         this.amountOfDiscipline = amountOfDiscipline;
     }
 
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
+
     private int shedule(){
         int pairs=0;
         pairs=(2*amountOfDiscipline)/5;
@@ -31,15 +40,14 @@ public class Student extends Person implements Scientist{
     }
 
     @Override
-    public String tellAboutPerson() {
+    public void tellAboutPerson() {
         System.out.println("This student has " + pairs + "every work day.");
-        return super.tellAboutPerson();
     }
 
     public void learn(){
-
+        System.out.println("I am learning now! My teacher is " + teacher);
     }
-    public void teach(){
-
+    public void teach() throws NotTeaching {
+        throw new NotTeaching();
     }
 }

@@ -1,9 +1,9 @@
-import java.sql.SQLOutput;
 
-public class Dean extends Person {
+public class Dean extends Person implements Scientist{
 
     private int experience;
     private boolean doctor_degree;
+    private Teacher[] teachers = new Teacher[2];
 
 
     public Dean(String name, int age, int experience, boolean doctor_degree) {
@@ -28,10 +28,31 @@ public class Dean extends Person {
         this.doctor_degree = doctor_degree;
     }
 
+    public Teacher[] getTeachers() {
+        return teachers;
+    }
+
+    public void setTeachers(Teacher[] teachers) {
+        this.teachers = teachers;
+    }
+
     @Override
-    public String tellAboutPerson() {
+    public void tellAboutPerson() {
         System.out.println("Do this dean has doctor degree? " + doctor_degree + ". This dean has " + experience +
                 "years of expierence.");
-        return super.tellAboutPerson();
+    }
+
+    @Override
+    public void learn() throws NotLearning {
+        throw new NotLearning();
+
+    }
+
+    @Override
+    public void teach(){
+        System.out.println("My subordinates are \n");
+        for (Teacher s: teachers) {
+            System.out.println(s.getName());
+        }
     }
 }

@@ -2,9 +2,6 @@ public class Person {
 
     private String name;
     private int age;
-    private Person dean;
-    private Person teacher;
-    private Person student;
 
     public Person(String name, int age) {
         this.name = name;
@@ -27,8 +24,7 @@ public class Person {
         this.age = age;
     }
 
-    public String tellAboutPerson(){
+    public void tellAboutPerson(){
         String info="Name - " + name + ", age - " + age + ".";
-        return "";
     }
 }
